@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Playing</title>
+</head>
+<body>
+    <h1 id="nowPlaying"></h1>
+    <img id="cover" alt="album cover" height="150px" width="150px">
+
+    <script>
+        
+        setInterval(getText, 1000)
+    
+
+        function getText(){
+
+            fetch('Snip/Snip.txt')
+            .then(function(res){
+                return res.text();
+            })
+            .then(function(data){
+                document.getElementById('nowPlaying').innerText = data;
+            })
+            
+            fetch('Snip/Snip_Artwork.jpg')
+            .then(function(response){
+                return response.blob();
+            })
+            .then(function(data){
+                const imgURL = URL.createObjectURL(data);
+                document.getElementById('cover').src=imgURL
+            })
+
+        }
+
+
+    </script>
+</body>
+</html>
