@@ -1,3 +1,3 @@
 # nowplaying
 
-Now playing
+EI toimi enää, kosk spotify lisäs sen mf paneelin.
